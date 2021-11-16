@@ -19,9 +19,8 @@ object BenchmarkWorkFlow {
             commands = List(
               "pwd",
               "ls ./",
-              "cat ./FrameworkBenchMarks/frameworks/Scala/zio-http/src/main/scala/Main.Scala",
               "cd ./FrameworkBenchMarks",
-              "./tfb  --test zio-http",
+              "echo ::set-output name=benchmarks::$(./tfb  --test zio-http | grep -i -B 18 'Concurrency: 256 for plaintext')",
             ),
           ),
         ),
